@@ -1,91 +1,42 @@
-# MDM-Vattenflow (Public Version)
+# MDM-Vattenflow
 
-A web-based internal tool for managing WBS and Cost Center change requests—built to streamline SAP-related workflows between Controllers and Master Data Management (MDM) teams.
+An internal tool for managing WBS and Cost Center change requests between Controllers and Master Data Management (MDM) teams. Originally prototyped inside Vattenfall; this is a generic public version.
 
-> 🚀 Originally prototyped inside Vattenfall, this version demonstrates a generic, public-facing version for showcasing architecture, validation logic, and full-stack design.
+Live: https://mdm-vattenflow.vercel.app/
 
-Live Version: https://mdm-vattenflow.vercel.app/
+## Why
 
----
+WBS and Cost Center requests usually run on Excel templates, emails and manual re-entry, which leads to inconsistent data, rework and delays. Vattenflow replaces that with a structured form, request tracking and a standardized Excel export.
 
-## 🔍 Overview
+## Features
 
-Traditional workflows for WBS and Cost Center management often rely on Excel templates, emails, and manual data re-entry—leading to:
-- Data inconsistencies
-- Rework and miscommunication
-- Delayed invoice processing and audit risks
+**Controllers**
+- Submit WBS and Cost Center requests with region and type specific fields
+- Add multiple WBS elements, with validation
+- Track status, comment and export to Excel
 
-**MDM-Vattenflow** solves this by providing:
-- A structured, role-based form interface
-- Automated request tracking
-- Excel-compatible export with macro-safe templates
-- Real-time status updates between Controllers and Admins
-- Export to a standardized, formatted Excel template.
+**Admins**
+- Review, edit and comment on requests
+- Change request status
+- View usage metrics and basic analytics
 
----
+## Screenshots
 
-## 📸 Screenshots
+| | |
+|---|---|
+| ![My Requests](./Screenshots/Homepage.png) | ![Create Request](./Screenshots/Create-Request.png) |
+| My Requests | Create Request |
+| ![Request View](./Screenshots/Request-View.png) | ![Admin Panel](./Screenshots/Admin-Panel.png) |
+| Request View and Export | Admin Panel |
+| ![Admin Requests](./Screenshots/Admin-Panel%20Requests.png) | ![AI Analysis](./Screenshots/AI-Analysis.png) |
+| Admin Request Management | AI Analytics (prototype) |
 
+## Tech Stack
 
-### 🧾 My Requests – Controller Homepage  
-![My Requests](./Screenshots/Homepage.png)
+Next.js, Firebase Auth, Firestore, and a Python backend using xlwings for Excel export.
 
-### ➕ Create New Request  
-![Create Request](./Screenshots/Create-Request.png)
+## Demo
 
-### 🪟 Request Overview & Excel Export
-![Request View](./Screenshots/Request-View.png)
+Controller login: `johndoe@vattenflow.com` / `123456`. Message me for admin access.
 
-### 🛠️ Admin Panel – Homepage  
-![Admin Panel](./Screenshots/Admin-Panel.png)
-
-### 🛠️ Admin Panel – Request Management  
-![Admin Panel - Request Management](./Screenshots/Admin-Panel%20Requests.png)
-
-### 📊 AI-Powered Analytics (Prototype)  
-![AI Analysis](./Screenshots/AI-Analysis.png)
-
----
-
-## 🧩 Features
-
-### 🎫 Controller Role
-- Login with Firebase auth
-- Submit new WBS/Cost Center requests
-- Dynamic form fields (filtered by region and type)
-- Add/remove multiple WBS elements
-- Field validation (character limits, required values)
-- Track status and comment on requests
-- Export request to Excel (via backend API)
-
-### 🔧 Admin Role
-- Access request dashboard
-- Change request statuses (e.g., Pending, Approved)
-- Add comments and edit submissions
-- View user metrics and system usage
-- Analyze request flow (basic analytics included)
-
----
-
-## 🛠 Tech Stack
-
-| Layer        | Technology          |
-|--------------|---------------------|
-| Frontend     | React / Next.js     |
-| Auth         | Firebase Auth       |
-| Database     | Firebase Firestore  |
-| Backend API  | Flask (Python) or Node.js |
-| Excel Export | Python (`xlwings`) |
-
----
-
-## 🔐 Demo Credentials
-
-| Role       | Email                | Password     |
-|------------|----------------------|--------------|
-| Controller | johndoe@vattenflow.com | 123456     |
-| Admin      | Message me please for Admin privileges. |
-
-Note: The Export to Excel feature currently needs a VM for xlwings to properly export to an Excel pre-assigned template with Macros attached, which was required for the project. Hence, it won't function on this version.
-
----
+Excel export needs a VM running xlwings to fill a macro-enabled template, so it does not work in the public version.
